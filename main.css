@@ -1,0 +1,75 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #262338;
+}
+
+.container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.container .pointer {
+  width: 60px;
+  height: 60px;
+  background: #C6B4D8;
+  position: absolute;
+  z-index: 10;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.container .pointer::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  top: -28px;
+  background: #C6B4D8;
+  clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
+}
+
+.container .turntable {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: transform 5s ease-in-out;
+}
+
+.container .turntable .item {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: var(--clr);
+  transform-origin: bottom right;
+  transform: rotate(calc(90deg * var(--i)));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .turntable .item span {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  transform: rotate(45deg);
+  text-shadow: 3px 5px 2px rgb(0 0 0 / 15%);
+}
