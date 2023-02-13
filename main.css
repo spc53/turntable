@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   align-items: center;
@@ -72,4 +78,127 @@ body {
   color: #ffffff;
   transform: rotate(45deg);
   text-shadow: 3px 5px 2px rgb(0 0 0 / 15%);
+}
+
+.add-item-panel {
+  width: 232px;
+  border-radius: 16px;
+  background: #ffffff;
+  padding: 16px;
+  position: absolute;
+  left: 16px;
+  top: calc(50vh - 200px);
+  background: #CEDEF0;
+}
+
+.add-item-panel .label {
+  font-size: 16px;
+}
+
+.add-item-panel .input-nm {
+  margin-top: 8px;
+  outline-style: none;
+  border: 2px solid #6B9BD1;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: calc(100% - 64px);
+  border-radius: 8px;
+  height: 32px;
+}
+
+.add-item-panel .add-btn {
+  height: 32px;
+  width: 56px;
+  background: #6B9BD1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.c-turn-btn:hover,
+.add-item-panel .add-btn:hover,
+.item-list .item-info .delete-item-btn:hover {
+  opacity: 0.8;
+}
+
+.item-list {
+  width: 232px;
+  /* padding: 16px; */
+  /* border-radius: 16px; */
+  /* background: #fff; */
+  background: transparent;
+  position: absolute;
+  left: 16px;
+  top: calc(50vh - 87px);
+  height: 300px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.item-list .item-info {
+  height: 48px;
+  width: 100%;
+  margin-bottom: 8px;
+  border-radius: 16px;
+  background: var(--iClr);
+  display: flex;
+  align-items: center;
+  padding: 0px 16px;
+}
+
+.item-list .item-info .item-nm {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  width: calc(100% - 24px);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.item-list .item-info .delete-item-btn {
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+  border: none;
+  border-radius: 50%;
+  font-size: 32px;
+  margin-left: auto;
+  background: transparent;
+  color: red;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.item-list::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 4px; /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+
+.item-list::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  background: #CEDEF0;
+}
+
+.item-list::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  border-radius: 10px;
+  /* background: #EBEBEF; */
+  background: transparent;
+}
+
+.c-turn-btn {
+  position: absolute;
+  left: 16px;
+  top: calc(50vh + 240px);
+  height: 32px;
+  width: 232px;
+  background: #6B9BD1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
