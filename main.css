@@ -55,29 +55,32 @@ body {
   border-radius: 50%;
   overflow: hidden;
   background-color: #ffffff;
+  border: 5px solid #fff;
   transition: transform 5s ease-in-out;
 }
 
 .container .turntable .item {
   width: 50%;
-  height: 50%;
+  height: 100%;
   position: absolute;
   top: 0px;
   left: 0px;
-  background: var(--clr);
-  transform-origin: bottom right;
-  transform: rotate(calc(90deg * var(--i)));
+  transform-origin: right center;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .container .turntable .item span {
   font-size: 32px;
   font-weight: 700;
+  display: block;
+  width: 85%;
+  text-align: center;
   color: #ffffff;
-  transform: rotate(45deg);
   text-shadow: 3px 5px 2px rgb(0 0 0 / 15%);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .add-item-panel {
@@ -124,9 +127,6 @@ body {
 
 .item-list {
   width: 232px;
-  /* padding: 16px; */
-  /* border-radius: 16px; */
-  /* background: #fff; */
   background: transparent;
   position: absolute;
   left: 16px;

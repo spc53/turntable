@@ -2,11 +2,13 @@
 
 const itemNm = document.getElementById('ipuntItemNm');
 const addBtn = document.getElementById('addBtn');
+const turnBtn = document.getElementById('turnBtn');
 const itemList = document.getElementById('itemList');
 const pointer = document.getElementById('pointer');
 const turntable = document.getElementById('turntable');
 
 let random = 0;
+let avgAngle = 0;
 let itemInfoList = [];
 const colorList = [
   '#F0EAE0',
@@ -55,6 +57,39 @@ addBtn.onclick = function () {
       itemHtml.innerHTML = `<span class="item-nm">${itemNmVal}</span>
                             <button class="delete-item-btn" onclick="deleteItem('${colorVal}', '${itemNmVal}')">×</button>`;
       itemList.appendChild(itemHtml);
+      itemNm.value = null;
     }
   }
+}
+
+function createTurnTable () {
+  if (itemInfoList.length < 2) {
+    return;
+  }
+
+  turntable.innerHTML = '';
+  avgAngle = 360 / itemInfoList.length;
+
+  for (let i = 0; i < itemInfoList.length; i++) {
+    const itemDiv = document.createElement('div');
+    itemDiv.setAttribute('class', 'item');
+    itemDiv.style.transform = `rotate(calc(${avgAngle}deg * ${i}))`;
+    itemDiv.style.background = itemInfoList[i].color;
+    const itemSpan = document.createElement('span');
+    itemSpan.innerText = itemInfoList[i].name;
+    itemDiv.appendChild(itemSpan);
+
+    if (itemInfoList.length > 2) {
+      const halfAngle = avgAngle / 2;
+      const oSide = Math.tan(halfAngle * Math.PI / 180) * 50; // 求对边
+      const x = 50 - oSide;
+      itemDiv.style.clipPath = `polygon(100% 50%, 0% ${x}%, 0% ${100 - x}%)`;
+    }
+
+    turntable.appendChild(itemDiv);
+  }
+}
+
+turnBtn.onclick = function () {
+  createTurnTable();
 }
