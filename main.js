@@ -1,4 +1,11 @@
-// 焖面 板面 盖饭 炒饭
+
+const isMobile = navigator.userAgent.indexOf('Mobile') || navigator.userAgent.indexOf('Android') || navigator.userAgent.indexOf('iPhone');
+const mainCon = document.getElementById('mainCon');
+if (isMobile > -1) {
+  mainCon.style.minWidth = 'unset';
+} else {
+  mainCon.style.minWidth = '400px';
+}
 
 const itemNm = document.getElementById('ipuntItemNm');
 const addBtn = document.getElementById('addBtn');
